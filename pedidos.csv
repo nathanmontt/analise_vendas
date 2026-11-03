@@ -1,0 +1,7 @@
+pedido;cliente;peso_kg;valor_kg;status
+101;  Alfa ;1000;3,00;Faturado
+102;BETA;500;3,50;faturado
+103;Alfa;800;3,20;FATURADO
+104;Beta;;3,70;Faturado
+105;Gamma;600;3,10;Cancelado
+106;Gamma;-100;3,40;Faturado
