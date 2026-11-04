@@ -1,3 +1,4 @@
-arquivo = open("pedidos.csv", "r", encoding="utf-8")
-print(arquivo.read())
-arquivo.close()
+with open("pedidos.csv", "r", encoding="utf-8") as arq:
+    content = arq.read()
+
+print(content)
