@@ -30,12 +30,15 @@ with open("pedidos.csv", "r", encoding="utf-8", newline="") as arq:
     content = csv.DictReader(arq, delimiter=";")
 
     for each_line in content:
-        pedido = each_line["pedido"]
-        cliente = each_line["cliente"].capitalize().strip()
-        peso_kg = each_line["peso_kg"]
-        valor_kg = each_line["valor_kg"]
-        status = each_line["status"]
+        pedido = each_line["pedido"].strip()
+        cliente = each_line["cliente"].strip().capitalize()
+        peso_kg = each_line["peso_kg"].strip()
+        valor_kg = each_line["valor_kg"].strip()
+        status = each_line["status"].strip()
 
         print(f"{'PEDIDO':<12}{'CLIENTE':<12} {'PESO':>10} {'PREÇO/KG':>12}")
-        print(f"{pedido}{cliente:>14}")
+        if not peso_kg:
+            print(f"{pedido}{cliente:>14}{"sem peso":>18}")
+        else:
+            print(f"{pedido}{cliente:>14}{peso_kg:>18}")
         print("-" * 48)
