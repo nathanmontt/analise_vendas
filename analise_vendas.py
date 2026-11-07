@@ -29,6 +29,8 @@ import csv
 with open("pedidos.csv", "r", encoding="utf-8", newline="") as arq:
     content = csv.DictReader(arq, delimiter=";")
 
+    print(f"{'PEDIDO':<12}{'CLIENTE':<12} {'PESO':>10} {'PREÇO/KG':>12}")
+    print("-" * 48)
     for each_line in content:
         pedido = each_line["pedido"].strip()
         cliente = each_line["cliente"].strip().capitalize()
@@ -36,6 +38,4 @@ with open("pedidos.csv", "r", encoding="utf-8", newline="") as arq:
         valor_kg = float(each_line["valor_kg"].strip().replace(",","."))
         status = each_line["status"].strip()
 
-        print(f"{'PEDIDO':<12}{'CLIENTE':<12} {'PESO':>10} {'PREÇO/KG':>12}")
-        print(f"{pedido}{cliente:>14}{"Sem peso" if not peso_kg else peso_kg:>18}{"R$" + format(valor_kg, '.2f'):>13}")
-        print("-" * 48)
+        print(f"{pedido}{cliente:>15}{"Sem peso" if not peso_kg else peso_kg:>18}{"R$" + format(valor_kg, '.2f'):>13}")
